@@ -15,6 +15,6 @@
 </p>
 
 <div class="actions">
-  <button secondary-button [disabled]="true" class="edit">Read full</button>
-  <button primary-button [disabled]="true" class="edit">Edit article</button>
+  <button secondary-button [routerLink]="['/', 'article', 'asd']">Read full</button>
+  <button primary-button [routerLink]="['/', 'article', 'edit', 'asd']">Edit article</button>
 </div>

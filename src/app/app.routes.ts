@@ -3,11 +3,19 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'articles',
+    redirectTo: 'article',
     pathMatch: 'full',
   },
   {
-    path: 'articles',
+    path: 'article',
+    loadComponent: () => import('./pages/article-list/article-list'),
+  },
+  {
+    path: 'article/:id',
+    loadComponent: () => import('./pages/article-list/article-list'),
+  },
+  {
+    path: 'article/edit/:id',
     loadComponent: () => import('./pages/article-list/article-list'),
   },
 ];
