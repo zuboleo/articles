@@ -1,0 +1,82 @@
+@mixin disabled-state($btn-disabled-text-color, $btn-disabled-background) {
+  background: $btn-disabled-background;
+  color: $btn-disabled-text-color;
+}
+
+@mixin button(
+  $btn-background,
+  $btn-text-color,
+  $btn-hover-background,
+  $btn-hover-text-color,
+  $btn-active-background,
+  $btn-disabled-text-color,
+  $btn-disabled-background
+) {
+  background: $btn-background;
+  color: $btn-text-color;
+
+  &:hover {
+    background: $btn-hover-background;
+    color: $btn-hover-text-color;
+  }
+
+  &:active {
+    background: $btn-active-background;
+  }
+
+  &.disabled {
+    @include disabled-state($btn-disabled-text-color, $btn-disabled-background);
+    cursor: not-allowed;
+  }
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 120px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  font: inherit;
+  padding: 8px 12px;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  &.primary {
+    @include button(
+      var(--gray-900),
+      var(--white),
+      var(--gray-800),
+      var(--white),
+      color-mix(in srgb, var(--gray-500), var(--white) 5%),
+      var(--gray-600),
+      color-mix(in srgb, var(--gray-500), var(--white) 5%)
+    );
+  }
+
+  &.secondary {
+    @include button(
+      var(--gray-700),
+      var(--white),
+      var(--gray-800),
+      var(--white),
+      color-mix(in srgb, var(--gray-500), var(--gray-950) 5%),
+      var(--gray-500),
+      var(--gray-300)
+    );
+  }
+
+  &.red {
+    @include button(
+      rgba(var(--system-red), 0.3),
+      var(--system-red),
+      var(--system-red),
+      var(--white),
+      color-mix(in srgb, var(--system-red), var(--gray-950) 5%),
+      rgba(var(--system-red), 0.2),
+      var(--white)
+    );
+  }
+}
