@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="note">
+    @for (item of '00'; track $index) {
+    <div class="note-item">Special edition</div>
+    }
+  </div>
+  <div class="first-line">
+    <app-line class="divider thin" [color]="'var(--gray-900)'" [width]="'2px'" />
+    <app-line class="divider thin" [color]="'var(--gray-900)'" [width]="'2px'" />
+    <p class="first-line-text">The</p>
+    <app-line class="divider" [color]="'var(--gray-400)'" [width]="'4px'" />
+    <app-line class="divider" [color]="'var(--gray-400)'" [width]="'4px'" />
+  </div>
+  <h1 class="title">Articles</h1>
+  <app-line class="divider" [color]="'var(--gray-400)'" [width]="'4px'" />
+  <app-line class="divider" [color]="'var(--gray-900)'" [width]="'2px'" />
+  <app-current-date class="date" />
+  <app-line class="divider" [color]="'var(--gray-400)'" [width]="'2px'" />
+</header>

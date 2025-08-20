@@ -1,0 +1,47 @@
+:host {
+  padding: 24px 0 12px;
+
+  .note {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-style: italic;
+    font-weight: 700;
+  }
+
+  .first-line {
+    display: grid;
+    grid-template-columns: 1fr 80px 1fr;
+    grid-template-rows: repeat(2, max-content);
+  }
+
+  .first-line-text {
+    position: relative;
+    grid-column: 2;
+    grid-row: 1 / -1;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+    font-size: 18px;
+  }
+
+  .divider {
+    margin-bottom: 2px;
+
+    &.thin {
+      align-self: flex-end;
+    }
+  }
+
+  .title {
+    text-align: center;
+    font-weight: 700;
+  }
+
+  .date,
+  .title {
+    margin: 8px 0;
+  }
+}
