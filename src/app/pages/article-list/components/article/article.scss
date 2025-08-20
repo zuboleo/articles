@@ -1,0 +1,47 @@
+:host {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8px;
+  align-items: center;
+
+  .title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .article-text {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
+  }
+
+  .actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: color-mix(in srgb, var(--gray-800) 100%, transparent 50%);
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    height: 0px;
+    transition: height 0.2s ease;
+
+    button {
+      display: none;
+    }
+  }
+
+  &:hover {
+    .actions {
+      height: 80px;
+
+      button {
+        display: block;
+      }
+    }
+  }
+}

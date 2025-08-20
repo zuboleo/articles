@@ -15,6 +15,7 @@ body {
   font-size: 14px;
   color: var(--gray-800);
   background-color: var(--bg-color);
+  user-select: none;
 }
 
 :root {
