@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Article } from './components/article/article';
+import { EmptyArticleList } from './components/empty-article-list/empty-article-list';
 
 @Component({
   selector: 'app-article-list',
-  imports: [Article],
+  imports: [Article, EmptyArticleList],
   templateUrl: './article-list.html',
   styleUrl: './article-list.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
