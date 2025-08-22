@@ -13,6 +13,7 @@ import { BUTTON_CLASS_PAIRS } from './util';
   selector: `
   button[primary-button],
   button[secondary-button],
+  button[icon-button],
   button[neutral],
   `,
   host: {

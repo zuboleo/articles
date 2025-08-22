@@ -1,0 +1,25 @@
+<div class="editor">
+  <div class="actions">
+    <button icon-button><i class="fa-solid fa-bold"
+         (click)="execute('bold', null, false)"></i></button>
+    <button icon-button>
+      <i class="fa-solid fa-italic"
+         (click)="execute('', null, false)"></i>
+    </button>
+    <button icon-button>
+      <i class="fa-solid fa-underline"
+         (click)="execute('', null, false)"></i>
+    </button>
+    <button icon-button><i class="fa-solid fa-undo"
+         (click)="execute('', null, false)"></i></button>
+    <button icon-button><i class="fa-solid fa-redo"
+         (click)="execute('', null, false)"></i></button>
+    <input app-input
+           type="color"
+           name="color" />
+  </div>
+
+  <div contenteditable="true"
+       spellcheck="false"
+       class="text-editor"></div>
+</div>

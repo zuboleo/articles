@@ -11,6 +11,11 @@
           "changeDetection": "OnPush",
           "displayBlock": true,
           "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "flat": false,
+          "skipTests": true,
+          "type": "directive"
         }
       },
       "root": "",

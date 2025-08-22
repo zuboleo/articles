@@ -11,4 +11,8 @@ export const BUTTON_CLASS_PAIRS = [
     attribute: 'red-button',
     buttonClasses: ['button', 'red'],
   },
+  {
+    attribute: 'icon-button',
+    buttonClasses: ['button', 'icon-button'],
+  },
 ];

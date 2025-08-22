@@ -1,0 +1,25 @@
+.input {
+  background-color: var(--gray-200);
+  border: 1px solid var(--gray-300);
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: var(--gray-800);
+  max-width: 320px;
+
+  &:focus {
+    outline: 2px solid var(--gray-300);
+  }
+
+  &[type='color'] {
+    padding: 4px;
+  }
+}
+
+label {
+  display: flex;
+  flex-flow: column nowrap;
+
+  > * {
+    margin-top: 4px;
+  }
+}

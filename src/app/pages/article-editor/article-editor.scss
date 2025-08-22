@@ -1,3 +1,12 @@
 :host {
-  display: block;
+  display: grid;
+  grid-auto-flow: row;
+  grid-row-gap: 16px;
+  padding: 8px;
+
+  .editor {
+    app-text-editor {
+      margin-top: 4px;
+    }
+  }
 }
