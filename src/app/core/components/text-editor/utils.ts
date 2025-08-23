@@ -1,5 +1,5 @@
 import { DOCUMENT, inject } from '@angular/core';
-import { CommandName } from '../../types/command-name.type';
+import { CommandName } from '@type/command-name.type';
 
 export function createCommands(): Record<CommandName, (...args: any[]) => void> {
   const doc = inject(DOCUMENT);
@@ -39,5 +39,24 @@ export function createCommands(): Record<CommandName, (...args: any[]) => void> 
       span.setAttribute('title', selection ?? '');
       range.surroundContents(span);
     },
+  };
+}
+
+export const mutationObserverOptions: MutationObserverInit = {
+  subtree: true,
+  characterData: true,
+  childList: true,
+};
+
+export function debounce<T extends (...args: Parameters<T>) => void>(
+  callback: T,
+  timeInMs: number,
+  thisArg: object | null = null
+): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout>;
+
+  return function (...args: Parameters<T>): void {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => callback.apply(thisArg, args), timeInMs);
   };
 }

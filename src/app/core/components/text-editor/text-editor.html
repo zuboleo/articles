@@ -35,17 +35,16 @@
                        (exec)="execute('comment')" />
   </div>
 
-  <div contenteditable="true"
+  <div [attr.contenteditable]="contentEditable()"
        #editor
        spellcheck="false"
-       class="text-editor"
-       [textContent]="'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea voluptas culpa, repudiandae vel necessitatibus odio mollitia consequuntur fuga nemo, voluptatum rerum ullam perferendis eius consequatur ducimus accusantium ipsam natus quas.'">
+       class="text-editor">
   </div>
 
   <div class="save-actions">
     <button secondary-button
-            (click)="clear(editor)">Clear</button>
+            (click)="clearValue(editor)">Clear</button>
     <button primary-button
-            (click)="save(editor)">Save</button>
+            (click)="saveValue(editor)">Save</button>
   </div>
 </div>

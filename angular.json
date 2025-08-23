@@ -16,6 +16,11 @@
           "flat": false,
           "skipTests": true,
           "type": "directive"
+        },
+        "@schematics/angular:service": {
+          "flat": false,
+          "skipTests": true,
+          "type": "service"
         }
       },
       "root": "",
