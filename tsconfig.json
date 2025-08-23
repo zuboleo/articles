@@ -19,7 +19,9 @@
       "@type/*": ["./src/app/core/types/*"],
       "@directives/*": ["./src/app/core/directives/*"],
       "@components/*": ["./src/app/core/components/*"],
-      "@pages/*": ["./src/app/pages/*"]
+      "@pages/*": ["./src/app/pages/*"],
+      "@constants/*": ["./src/app/core/constants/*"],
+      "@resolvers/*": ["./src/app/core/resolvers/*"]
     }
   },
   "angularCompilerOptions": {

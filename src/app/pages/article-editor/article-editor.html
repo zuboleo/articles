@@ -1,15 +1,25 @@
-<h2>{{ title() }}</h2>
+<header class="header">
+  <button icon-button
+          [routerLink]="['/']"><i class="fa-solid fa-arrow-left"></i></button>
+  <h2>{{ title() }}</h2>
+  <button secondary-button
+          (click)="cancel()">Cancel</button>
+  <button primary-button
+          (click)="saveArticle()">Save</button>
+</header>
 
-<label>
-  Article name
-  <input type="text"
-         app-input
-         [app-form-error]="{required: 'Field is required'}"
-         [formControl]="form.controls.title"
-         [placeholder]="'Type article name...'" />
-</label>
+<div class="editor-wrapper">
+  <label>
+    <h4>Article name</h4>
+    <input type="text"
+           app-input
+           [app-form-error]="{required: 'Field is required'}"
+           [formControl]="form.controls.title"
+           [placeholder]="'Type article name...'" />
+  </label>
 
-<div class="editor">
-  Article content
-  <app-text-editor [formControl]="form.controls.article" />
+  <div class="editor">
+    <h4>Article content</h4>
+    <app-text-editor [formControl]="form.controls.article" />
+  </div>
 </div>

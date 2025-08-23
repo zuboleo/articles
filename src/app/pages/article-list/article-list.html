@@ -1,5 +1,5 @@
-@for (item of ''; track $index) {
-<app-article />
+@for (article of articles(); track $index) {
+<app-article [article]="article" />
 } @empty {
 <app-empty-article-list />
 }

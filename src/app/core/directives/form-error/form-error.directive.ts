@@ -28,7 +28,9 @@ export class FormErrorDirective implements AfterViewInit {
           debounceTime(200),
           map(() => this.control.invalid && (this.control.touched || this.control.dirty))
         )
-        .subscribe(() => this.showError(this.control.errors));
+        .subscribe(() => {
+          this.showError(this.control.errors);
+        });
     }
   }
 

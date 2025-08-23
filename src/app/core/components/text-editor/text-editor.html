@@ -17,6 +17,10 @@
                        [icon]="'paragraph'"
                        (exec)="execute('paragraph')" />
 
+    <app-editor-button [command]="'comment'"
+                       [icon]="'comment'"
+                       (exec)="execute('comment')" />
+
     <app-line [vertical]="true"
               [color]="'var(--gray-200)'" />
 
@@ -30,21 +34,15 @@
     <app-line [vertical]="true"
               [color]="'var(--gray-200)'" />
 
-    <app-editor-button [command]="'comment'"
-                       [icon]="'comment'"
-                       (exec)="execute('comment')" />
+    <app-editor-button [command]="'trash'"
+                       [icon]="'trash'"
+                       (exec)="execute('trash')" />
+
   </div>
 
   <div [attr.contenteditable]="contentEditable()"
        #editor
        spellcheck="false"
        class="text-editor">
-  </div>
-
-  <div class="save-actions">
-    <button secondary-button
-            (click)="clearValue(editor)">Clear</button>
-    <button primary-button
-            (click)="saveValue(editor)">Save</button>
   </div>
 </div>

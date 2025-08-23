@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { articleResolver } from '@resolvers/article/article-resolver';
 
 export const routes: Routes = [
   {
@@ -23,7 +24,10 @@ export const routes: Routes = [
   },
   {
     path: 'article/edit/:id',
-    loadComponent: () => import('./pages/article-list/article-list'),
+    loadComponent: () => import('./pages/article-editor/article-editor'),
     title: 'Edit article',
+    resolve: {
+      article: articleResolver,
+    },
   },
 ];

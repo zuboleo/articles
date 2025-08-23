@@ -21,6 +21,11 @@
           "flat": false,
           "skipTests": true,
           "type": "service"
+        },
+        "@schematics/angular:resolver": {
+          "flat": false,
+          "functional": true,
+          "skipTests": true
         }
       },
       "root": "",

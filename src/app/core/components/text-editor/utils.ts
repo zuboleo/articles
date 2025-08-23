@@ -39,6 +39,9 @@ export function createCommands(): Record<CommandName, (...args: any[]) => void> 
       span.setAttribute('title', selection ?? '');
       range.surroundContents(span);
     },
+    trash: (range: Range) => {
+      range.deleteContents();
+    },
   };
 }
 

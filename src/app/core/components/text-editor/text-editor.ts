@@ -8,13 +8,10 @@ import {
   effect,
   forwardRef,
   inject,
-  model,
-  output,
   signal,
   viewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Button } from '@components/button/button';
 import { Line } from '@components/line/line';
 import { HtmlService } from '@services/html/html';
 import { CommandName } from '@type/command-name.type';
@@ -24,7 +21,7 @@ import { createCommands, debounce, mutationObserverOptions } from './utils';
 
 @Component({
   selector: 'app-text-editor',
-  imports: [Button, Line, EditorButton, EditorColorButton],
+  imports: [Line, EditorButton, EditorColorButton],
   templateUrl: './text-editor.html',
   styleUrl: './text-editor.scss',
   providers: [
@@ -49,8 +46,6 @@ export class TextEditor implements ControlValueAccessor, OnDestroy {
 
   private mutationObserver = new MutationObserver(debounce(this.observeMutation, 300, this));
 
-  protected value = model('');
-
   protected onChange: (val: string | null | undefined | number) => void = () => {};
 
   protected onTouch: () => void = () => {};
@@ -61,13 +56,8 @@ export class TextEditor implements ControlValueAccessor, OnDestroy {
 
   editor = viewChild<ElementRef<HTMLDivElement>>('editor');
 
-  save = output<string>();
-
-  clear = output<void>();
-
   constructor() {
     effect(() => this.startObserve());
-    effect(() => this.insertData());
   }
 
   ngOnDestroy(): void {
@@ -84,18 +74,9 @@ export class TextEditor implements ControlValueAccessor, OnDestroy {
     }
   }
 
-  protected saveValue(editor: HTMLDivElement) {
-    this.save.emit(editor.innerHTML);
-  }
-
-  protected clearValue(editor: HTMLDivElement) {
-    this.html.insert('', editor);
-    this.clear.emit();
-  }
-
   writeValue(obj: string | null | undefined | number): void {
     const value = obj ?? '';
-    this.value.set(value.toString());
+    this.insertData(value.toString());
   }
 
   registerOnChange(fn: any): void {
@@ -116,11 +97,10 @@ export class TextEditor implements ControlValueAccessor, OnDestroy {
     if (editor) this.mutationObserver.observe(editor, mutationObserverOptions);
   }
 
-  private insertData() {
+  private insertData(value: string) {
     const editor = this.editor()?.nativeElement;
-    const value = this.value();
 
-    if (editor && value) {
+    if (editor && value != null) {
       this.html.insert(value, editor);
     }
   }

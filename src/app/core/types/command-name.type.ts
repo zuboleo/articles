@@ -5,4 +5,5 @@ export type CommandName =
   | 'paragraph'
   | 'highlightColor'
   | 'textColor'
-  | 'comment';
+  | 'comment'
+  | 'trash';

@@ -1,27 +1,68 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, input } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
+import { Button } from '@components/button/button';
 import { TextEditor } from '@components/text-editor/text-editor';
 import { FormErrorDirective } from '@directives/form-error/form-error.directive';
 import { InputDirective } from '@directives/input/input.directive';
-
-const v = `<u>Lorem ipsum do<span title="lor, sit amet cons" style="text-decoration: underline wavy green; cursor: pointer;">lor, sit amet cons</span>e</u>ctetur adipisicing elit. Deleniti a<i>liquam nihil veniam iure e</i>veniet aliquid eum temporibus id <span title="doloremque eius asperiores," style="text-decoration: underline wavy green; cursor: pointer;">doloremque eius asperiores,</span> maxime porro ut adipisci. Consequatur iure ipsa archvitecto veniam?`;
+import { ArticleApiService } from '@services/article-api/article-api.service';
+import { Article } from '@type/article.type';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
   selector: 'app-article-editor',
-  imports: [TextEditor, InputDirective, ReactiveFormsModule, FormErrorDirective],
+  imports: [
+    TextEditor,
+    InputDirective,
+    ReactiveFormsModule,
+    FormErrorDirective,
+    Button,
+    RouterLink,
+  ],
   templateUrl: './article-editor.html',
   styleUrl: './article-editor.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ArticleEditor {
-  protected article = input<any>();
+  private api = inject(ArticleApiService);
 
-  protected title = computed(() =>
-    this.article()?.id ? `Edit article ${this.article()?.name}` : 'Create new article'
-  );
+  private router = inject(Router);
+
+  protected article = input<Article>();
+
+  protected title = computed(() => (this.article()?.id ? 'Edit article' : 'Create new article'));
+
+  constructor() {
+    effect(() => {
+      const article = this.article();
+      !!article && this.form.patchValue(article);
+    });
+  }
 
   protected form = new FormGroup({
+    id: new FormControl<string>('', { nonNullable: true }),
     title: new FormControl<string>('', { nonNullable: true, validators: [Validators.required] }),
-    article: new FormControl<string>(v, { nonNullable: true }),
+    article: new FormControl<string>('', { nonNullable: true }),
   });
+
+  protected async saveArticle() {
+    this.form.updateValueAndValidity();
+    this.form.markAllAsTouched({ emitEvent: true });
+
+    if (this.form.invalid) return;
+
+    const article = this.form.getRawValue();
+
+    if (article.id) await firstValueFrom(this.api.updateArticle(article));
+    else await firstValueFrom(this.api.createArticle(article));
+
+    this.router.navigate(['/']);
+  }
+
+  protected cancel() {
+    const { article, ...rest } = this.form.getRawValue();
+    this.form.reset();
+    this.form.markAllAsTouched();
+    this.router.navigate(['/']);
+  }
 }
