@@ -1,5 +1,5 @@
 .input {
-  background-color: var(--gray-200);
+  background-color: var(--bg-color);
   border: 1px solid var(--gray-300);
   border-radius: 4px;
   padding: 8px 12px;
@@ -11,11 +11,20 @@
   }
 
   &[type='color'] {
-    padding: 4px;
+    padding: 1px;
   }
 }
 
-label {
+label.inline {
+  display: flex;
+  align-items: flex-end;
+
+  .input {
+    margin-left: 4px;
+  }
+}
+
+label:not(.inline) {
   display: flex;
   flex-flow: column nowrap;
 

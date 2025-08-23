@@ -1,25 +1,51 @@
 <div class="editor">
-  <div class="actions">
-    <button icon-button><i class="fa-solid fa-bold"
-         (click)="execute('bold', null, false)"></i></button>
-    <button icon-button>
-      <i class="fa-solid fa-italic"
-         (click)="execute('', null, false)"></i>
-    </button>
-    <button icon-button>
-      <i class="fa-solid fa-underline"
-         (click)="execute('', null, false)"></i>
-    </button>
-    <button icon-button><i class="fa-solid fa-undo"
-         (click)="execute('', null, false)"></i></button>
-    <button icon-button><i class="fa-solid fa-redo"
-         (click)="execute('', null, false)"></i></button>
-    <input app-input
-           type="color"
-           name="color" />
+  <div class="text-editor-actions">
+    <app-editor-button [command]="'bold'"
+                       [icon]="'bold'"
+                       (exec)="execute('bold')" />
+    <app-editor-button [command]="'italic'"
+                       [icon]="'italic'"
+                       (exec)="execute('italic')" />
+    <app-editor-button [command]="'underline'"
+                       [icon]="'underline'"
+                       (exec)="execute('underline')" />
+
+    <app-line [vertical]="true"
+              [color]="'var(--gray-200)'" />
+
+    <app-editor-button [command]="'paragraph'"
+                       [icon]="'paragraph'"
+                       (exec)="execute('paragraph')" />
+
+    <app-line [vertical]="true"
+              [color]="'var(--gray-200)'" />
+
+    <app-editor-color-button [icon]="'font'"
+                             [command]="'textColor'"
+                             (exec)="execute($event[0], $event.slice(1))" />
+    <app-editor-color-button [icon]="'highlighter'"
+                             [command]="'highlightColor'"
+                             (exec)="execute($event[0], $event.slice(1))" />
+
+    <app-line [vertical]="true"
+              [color]="'var(--gray-200)'" />
+
+    <app-editor-button [command]="'comment'"
+                       [icon]="'comment'"
+                       (exec)="execute('comment')" />
   </div>
 
   <div contenteditable="true"
+       #editor
        spellcheck="false"
-       class="text-editor"></div>
+       class="text-editor"
+       [textContent]="'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ea voluptas culpa, repudiandae vel necessitatibus odio mollitia consequuntur fuga nemo, voluptatum rerum ullam perferendis eius consequatur ducimus accusantium ipsam natus quas.'">
+  </div>
+
+  <div class="save-actions">
+    <button secondary-button
+            (click)="clear(editor)">Clear</button>
+    <button primary-button
+            (click)="save(editor)">Save</button>
+  </div>
 </div>

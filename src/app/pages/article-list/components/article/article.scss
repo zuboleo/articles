@@ -1,5 +1,4 @@
 :host {
-  position: relative;
   display: flex;
   flex-flow: column nowrap;
   gap: 8px;
@@ -18,7 +17,6 @@
   }
 
   .actions {
-    position: absolute;
     bottom: 0;
     left: 0;
     display: flex;

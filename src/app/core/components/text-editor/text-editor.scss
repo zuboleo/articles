@@ -1,30 +1,40 @@
 :host {
   display: block;
+  height: 100%;
 
   .editor {
-    width: 800px;
-    height: 500px;
+    display: grid;
+    grid-template-rows: max-content 1fr max-content;
+    grid-row-gap: 16px;
+    width: 100%;
+    max-width: 700px;
+    height: 50dvh;
     border: 2px solid var(--gray-300);
     border-radius: 8px;
-    padding: 16px;
   }
 
   .text-editor {
     border: none;
     outline: none;
     width: 100%;
-    height: calc(100% - 48px);
+    padding: 0 16px;
+    overflow-y: auto;
   }
 
-  .actions {
+  .save-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 24px;
+    padding: 16px;
+    border-top: 1px solid var(--gray-300);
+  }
+
+  .text-editor-actions {
     display: grid;
     grid-auto-flow: column;
     grid-column-gap: 8px;
     grid-auto-columns: max-content;
-    margin-bottom: 16px;
-
-    input {
-      height: 100%;
-    }
+    padding: 16px;
+    border-bottom: 1px solid var(--gray-300);
   }
 }

@@ -1,0 +1,13 @@
+<button icon-button
+        class="color-picker-input"
+        (click)="color.click()">
+  <i class="fa-solid"
+     [class]="icon()"></i>
+  <input #color
+         [style.background]="color.value"
+         app-input
+         type="color"
+         name="color"
+         [value]="'#000000'"
+         (change)="exec.emit([command(), color.value])" />
+</button>

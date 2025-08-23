@@ -4,7 +4,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Directive({
   selector: '[app-input]',
   host: {
-    '[classList]': "'input app-input'",
+    '[class.input]': 'true',
+    '[class.app-input]': 'true',
     '[id]': 'id',
     '[attr.value]': 'model()',
     '[attr.required]': 'required()',
