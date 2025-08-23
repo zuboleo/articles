@@ -4,11 +4,9 @@
   Article name
   <input type="text"
          app-input
+         [app-form-error]="{required: 'Field is required'}"
          [formControl]="form.controls.title"
          [placeholder]="'Type article name...'" />
-  @if (form.controls.title.touched && form.controls.title.hasError('required')) {
-  <span app-form-error>Fiels is required</span>
-  }
 </label>
 
 <div class="editor">
