@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Button } from '../../../../core/components/button/button';
+import { Button } from '@components/button/button';
 
 @Component({
   selector: 'app-empty-article-list',

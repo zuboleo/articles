@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CurrentDate } from '../current-date/current-date';
-import { Line } from '../line/line';
+import { CurrentDate } from '@components/current-date/current-date';
+import { Line } from '@components/line/line';
 
 @Component({
   selector: 'app-header',

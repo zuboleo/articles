@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Button } from '../../button/button';
+import { Button } from '@components/button/button';
 import { BaseEditorButton } from '../base-editor-button/base-editor-button';
 
 @Component({

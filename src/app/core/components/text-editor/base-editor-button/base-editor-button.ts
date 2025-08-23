@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { CommandName } from '../../../types/command-name.type';
+import { CommandName } from '@type/command-name.type';
 
 @Component({
   selector: 'app-base-editor-button',

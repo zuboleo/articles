@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import { Line } from '../../../../core/components/line/line';
+import { Line } from '@components/line/line';
 
 @Component({
   selector: 'app-article-header',

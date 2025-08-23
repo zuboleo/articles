@@ -18,7 +18,8 @@
       "@services/*": ["./src/app/core/services/*"],
       "@type/*": ["./src/app/core/types/*"],
       "@directives/*": ["./src/app/core/directives/*"],
-      "@components/*": ["./src/app/core/components/*"]
+      "@components/*": ["./src/app/core/components/*"],
+      "@pages/*": ["./src/app/pages/*"]
     }
   },
   "angularCompilerOptions": {
