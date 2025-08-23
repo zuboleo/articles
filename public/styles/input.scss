@@ -13,10 +13,20 @@
   &[type='color'] {
     padding: 1px;
   }
+
+  &.ng-dirty.ng-invalid,
+  &.ng-touched.ng-invalid {
+    background-color: color-mix(in srgb, var(--error-color), transparent 90%);
+    color: color-mix(in srgb, var(--gray-800), var(--error-color) 50%);
+    border-color: var(--error-color);
+    outline-color: color-mix(in srgb, var(--error-color), transparent 50%);
+  }
 }
 
 label {
+  position: relative;
   max-width: 320px;
+  margin-bottom: 16px;
 }
 
 label.inline {
@@ -32,7 +42,7 @@ label:not(.inline) {
   display: flex;
   flex-flow: column nowrap;
 
-  > * {
+  > input {
     margin-top: 4px;
   }
 }

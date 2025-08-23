@@ -1,4 +1,5 @@
 @use '../public/styles/input.scss';
+@use '../public/styles/form-error.scss';
 
 * {
   margin: 0;
@@ -34,4 +35,5 @@ body {
 
   --bg-color: #f9f7f1;
   --white: #ffffff;
+  --error-color: #e71f1f;
 }
