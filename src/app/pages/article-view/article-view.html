@@ -1,0 +1,14 @@
+<header>
+  <div class="title">
+    <button icon-button
+            [routerLink]="['/']"><i class="fa-solid fa-arrow-left"></i></button>
+    <h3 class="header-text">{{ article().title }}</h3>
+    <button secondary-button
+            (click)="removeArticle()">Remove</button>
+    <button primary-button
+            [routerLink]="['/', 'article', 'edit', article().id]">Edit article</button>
+  </div>
+  <app-line color="var(--gray-500)" />
+</header>
+
+<article #articleContainer></article>

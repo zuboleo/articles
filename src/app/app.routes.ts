@@ -19,8 +19,11 @@ export const routes: Routes = [
   },
   {
     path: 'article/:id',
-    loadComponent: () => import('./pages/article-list/article-list'),
+    loadComponent: () => import('./pages/article-view/article-view'),
     title: 'Article',
+    resolve: {
+      article: articleResolver,
+    },
   },
   {
     path: 'article/edit/:id',

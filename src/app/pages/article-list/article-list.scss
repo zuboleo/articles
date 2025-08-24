@@ -1,13 +1,12 @@
 :host {
   display: grid;
-  grid-template-rows: 48px calc(100vh - 230px);
+  grid-template-rows: 33px calc(100vh - 230px);
   grid-row-gap: 12px;
   height: 100%;
 
   .header {
     display: flex;
     justify-content: flex-end;
-    padding: 8px 8px;
   }
 
   .article-list {

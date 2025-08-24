@@ -51,7 +51,7 @@ export class ArticleApiService {
     const article = records.find(({ id }) => id === articleId);
 
     if (article) {
-      records = records.filter(({ id }) => id === article.id);
+      records = records.filter(({ id }) => id !== article.id);
       this.localStorage.save(ALL_RECORDS, records);
       return of(article);
     } else {
