@@ -5,12 +5,14 @@ import {
   effect,
   ElementRef,
   inject,
+  model,
   signal,
   viewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Button } from '@components/button/button';
 import { InputDirective } from '@directives/input/input.directive';
+import { NoSelectedRangeError } from '@errors/no-selected-range-error';
 import { BaseEditorButton } from '../base-editor-button/base-editor-button';
 import { colors } from '../utils';
 
@@ -34,7 +36,7 @@ export class CommentButton extends BaseEditorButton {
 
   protected selectedColor = signal(colors[0]);
 
-  protected comment = '';
+  protected comment = model('');
 
   constructor() {
     super();
@@ -54,12 +56,16 @@ export class CommentButton extends BaseEditorButton {
     try {
       this.range = selection?.getRangeAt(0) ?? null;
     } catch (error) {
-      throw Error('No selection found.Try to Select text first');
+      throw new NoSelectedRangeError();
+    }
+
+    if (!this.range?.toString()) {
+      throw new NoSelectedRangeError();
     }
   }
 
   protected resetValues() {
     this.selectedColor.set(colors[0]);
-    this.comment = '';
+    this.comment.set('');
   }
 }

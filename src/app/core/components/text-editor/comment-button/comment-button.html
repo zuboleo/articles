@@ -39,8 +39,8 @@
       <button primary-button
               [attr.popovertarget]="popoverId"
               popovertargetaction="toggle"
-              (click)="exec.emit([command(), range, comment, selectedColor()]); resetValues()"
-              [disabled]="!comment">Apply</button>
+              (click)="exec.emit([command(), range, comment(), selectedColor()])"
+              [disabled]="!comment()">Apply</button>
     </div>
   </div>
 </div>
