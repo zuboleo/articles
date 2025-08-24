@@ -42,6 +42,6 @@ export class CommentButton extends BaseEditorButton {
 
   protected resetValues() {
     this.selectedColor.set(colors[0]);
-    this.comment.set('e');
+    this.comment.set('');
   }
 }

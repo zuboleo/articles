@@ -1,4 +1,4 @@
-import { Directive, effect, forwardRef, input, model } from '@angular/core';
+import { Directive, effect, ElementRef, forwardRef, inject, input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Directive({
@@ -7,7 +7,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     '[class.input]': 'true',
     '[class.app-input]': 'true',
     '[id]': 'id',
-    '[attr.value]': 'model()',
     '[attr.required]': 'required()',
     '(input)': 'writeNewValue($any($event.target).value, true)',
     '(blur)': 'onTouch()',
@@ -21,15 +20,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
 })
 export class InputDirective implements ControlValueAccessor {
-  isDisabled = false;
+  private elRef: HTMLInputElement = inject(ElementRef).nativeElement;
 
-  disabled = input(false);
+  protected isDisabled = false;
 
-  id = crypto.randomUUID();
+  protected disabled = input(false);
 
-  required = input(false);
+  protected id = crypto.randomUUID();
 
-  model = model<string | number | null | undefined | object>();
+  protected required = input(false);
 
   onTouch: () => void = () => {};
 
@@ -55,8 +54,8 @@ export class InputDirective implements ControlValueAccessor {
     this.writeNewValue(obj, false);
   }
 
-  writeNewValue(value: any, emitEvent: boolean) {
-    this.model.set(value);
+  protected writeNewValue(value: any, emitEvent: boolean) {
+    this.elRef.value = value;
 
     if (emitEvent) {
       this.onChange(value);
