@@ -1,6 +1,6 @@
 :host {
   display: grid;
-  grid-template-rows: 48px 500px;
+  grid-template-rows: 48px calc(100vh - 230px);
   grid-row-gap: 12px;
   height: 100%;
 

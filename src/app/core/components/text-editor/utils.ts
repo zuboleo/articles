@@ -29,15 +29,17 @@ export function createCommands(): Record<CommandName, (...args: any[]) => void> 
       span.style.color = color;
       range.surroundContents(span);
     },
-    comment: (_: Range, [currentRange, text, color]: [Range, ...string[]]) => {
+    comment: (_: Range, [range, text, color]: [Range, ...string[]]) => {
       const span = doc.createElement('span');
+
       Object.assign(span.style, {
         textDecoration: `${color} solid underline`,
         textDecorationThickness: '2px',
         cursor: 'pointer',
       });
+
       span.setAttribute('title', text.trim());
-      currentRange.surroundContents(span);
+      range.surroundContents(span);
     },
     trash: (range: Range) => {
       range.deleteContents();
@@ -63,18 +65,3 @@ export function debounce<T extends (...args: Parameters<T>) => void>(
     timeout = setTimeout(() => callback.apply(thisArg, args), timeInMs);
   };
 }
-
-export const colors = [
-  '#172B4D',
-  '#505F79',
-  '#C1C7D0',
-  '#0747A6',
-  '#4C9AFF',
-  '#00875A',
-  '#57D9A3',
-  '#DE350B',
-  '#FF8B00',
-  '#FFAB00',
-  '#403294',
-  '#FFBDAD',
-];

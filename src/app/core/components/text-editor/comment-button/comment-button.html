@@ -7,8 +7,8 @@
   </i>
 </button>
 
-<div #popoverRef
-     popover>
+<div popover
+     [id]="popoverId">
   <div class="popover">
     <h4 class="header">Add comment</h4>
 
@@ -39,7 +39,7 @@
       <button primary-button
               [attr.popovertarget]="popoverId"
               popovertargetaction="toggle"
-              (click)="exec.emit([command(), range, comment(), selectedColor()])"
+              (click)="exec.emit([command(), range, comment(), selectedColor()]); resetValues()"
               [disabled]="!comment()">Apply</button>
     </div>
   </div>

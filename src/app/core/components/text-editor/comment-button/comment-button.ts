@@ -1,20 +1,11 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  DOCUMENT,
-  effect,
-  ElementRef,
-  inject,
-  model,
-  signal,
-  viewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, DOCUMENT, inject, model, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Button } from '@components/button/button';
+import { colors } from '@constants/colors';
+import { POPOVER_ID } from '@constants/popover';
 import { InputDirective } from '@directives/input/input.directive';
 import { NoSelectedRangeError } from '@errors/no-selected-range-error';
 import { BaseEditorButton } from '../base-editor-button/base-editor-button';
-import { colors } from '../utils';
 
 @Component({
   selector: 'app-comment-button',
@@ -28,28 +19,13 @@ export class CommentButton extends BaseEditorButton {
 
   protected range: Range | null = null;
 
-  protected popoverId = crypto.randomUUID();
-
-  protected popoverRef = viewChild<ElementRef<HTMLElement>>('popoverRef');
+  protected popoverId = POPOVER_ID;
 
   protected colors = colors;
 
   protected selectedColor = signal(colors[0]);
 
   protected comment = model('');
-
-  constructor() {
-    super();
-
-    effect(() => this.setPopoverId());
-  }
-
-  private setPopoverId() {
-    const popoverRef = this.popoverRef()?.nativeElement;
-    if (popoverRef) {
-      popoverRef.id = this.popoverId;
-    }
-  }
 
   protected checkSelection() {
     const selection = this.doc.getSelection();
@@ -66,6 +42,6 @@ export class CommentButton extends BaseEditorButton {
 
   protected resetValues() {
     this.selectedColor.set(colors[0]);
-    this.comment.set('');
+    this.comment.set('e');
   }
 }
