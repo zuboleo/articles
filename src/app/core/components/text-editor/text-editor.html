@@ -17,9 +17,9 @@
                        [icon]="'paragraph'"
                        (exec)="execute('paragraph')" />
 
-    <app-editor-button [command]="'comment'"
-                       [icon]="'comment'"
-                       (exec)="execute('comment')" />
+    <app-comment-button [command]="'comment'"
+                        [icon]="'comment'"
+                        (exec)="execute($event[0], $event.slice(1))" />
 
     <app-line [vertical]="true"
               [color]="'var(--gray-200)'" />

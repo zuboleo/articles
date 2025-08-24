@@ -1,0 +1,46 @@
+<button icon-button
+        [attr.popovertarget]="popoverId"
+        popovertargetaction="toggle"
+        (click)="checkSelection()">
+  <i class="fa-solid"
+     [class]="icon()">
+  </i>
+</button>
+
+<div #popoverRef
+     popover>
+  <div class="popover">
+    <h4 class="header">Add comment</h4>
+
+    <label>
+      Comment
+      <input type="text"
+             app-input
+             placeholder="type comment..."
+             [(ngModel)]="comment">
+    </label>
+
+    <div class="colors">
+      <p class="colors-title">Select color</p>
+      <div class="color-pick">
+        @for (color of colors; track $index) {
+        <div class="color"
+             (click)="selectedColor.set(color)"
+             [style.background-color]="color"
+             [class.active]="color === selectedColor()"></div>
+        }
+      </div>
+    </div>
+
+    <div class="actions">
+      <button secondary-button
+              [attr.popovertarget]="popoverId"
+              popovertargetaction="toggle">Cancel</button>
+      <button primary-button
+              [attr.popovertarget]="popoverId"
+              popovertargetaction="toggle"
+              (click)="exec.emit([command(), range, comment, selectedColor()]); resetValues()"
+              [disabled]="!comment">Apply</button>
+    </div>
+  </div>
+</div>

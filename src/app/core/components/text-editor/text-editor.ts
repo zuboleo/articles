@@ -15,13 +15,14 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Line } from '@components/line/line';
 import { HtmlService } from '@services/html/html';
 import { CommandName } from '@type/command-name.type';
+import { CommentButton } from './comment-button/comment-button';
 import { EditorButton } from './editor-button/editor-button';
 import { EditorColorButton } from './editor-color-button/editor-color-button';
 import { createCommands, debounce, mutationObserverOptions } from './utils';
 
 @Component({
   selector: 'app-text-editor',
-  imports: [Line, EditorButton, EditorColorButton],
+  imports: [Line, EditorButton, EditorColorButton, CommentButton],
   templateUrl: './text-editor.html',
   styleUrl: './text-editor.scss',
   providers: [
@@ -70,7 +71,7 @@ export class TextEditor implements ControlValueAccessor, OnDestroy {
     if (selection) {
       const range = selection.getRangeAt(0);
       const cmdFn = this.getCommandFunction(cmd);
-      cmdFn(range, args);
+      cmdFn(range, ...args);
     }
   }
 

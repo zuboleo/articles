@@ -1,0 +1,22 @@
+[popover] {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border: 2px solid var(--gray-300);
+  background-color: var(--bg-color);
+}
+
+:popover-open {
+  width: 300px;
+  padding: 12px;
+  border-radius: 8px;
+}
+
+[popover]::backdrop {
+  background-color: transparent;
+  backdrop-filter: blur(3px);
+}
+
+[popover]:popover-open::backdrop {
+  background-color: color-mix(in srgb, var(--gray-900), transparent 90%);
+}
