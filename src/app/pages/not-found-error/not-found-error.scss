@@ -1,0 +1,14 @@
+:host {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 24px;
+  margin-top: 50px;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  .icon {
+    font-size: 56px;
+  }
+}

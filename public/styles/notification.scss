@@ -1,0 +1,13 @@
+.notification {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  padding: 12px;
+  color: var(--white);
+  max-width: 320px;
+  font-size: 14px;
+
+  &.notification-error {
+    background-color: color-mix(in srgb, var(--error-color), transparent 10%);
+  }
+}

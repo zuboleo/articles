@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
 import { ALL_RECORDS } from '@components/constants/articles-keys';
+import { NotFoundError } from '@errors/not-found-error';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Article } from '@type/article.type';
 import { of, throwError } from 'rxjs';
@@ -63,6 +64,6 @@ export class ArticleApiService {
   }
 
   private throwNotFoundError(id: string) {
-    return throwError(() => new Error(`Record with id [${id}] not found`));
+    return throwError(() => new NotFoundError(`Record with id [${id}] not found`));
   }
 }

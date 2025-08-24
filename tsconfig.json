@@ -21,7 +21,9 @@
       "@components/*": ["./src/app/core/components/*"],
       "@pages/*": ["./src/app/pages/*"],
       "@constants/*": ["./src/app/core/constants/*"],
-      "@resolvers/*": ["./src/app/core/resolvers/*"]
+      "@resolvers/*": ["./src/app/core/resolvers/*"],
+      "@errors/*": ["./src/app/core/errors/*"],
+      "@interceptors/*": ["./src/app/core/interceptors/*"]
     }
   },
   "angularCompilerOptions": {

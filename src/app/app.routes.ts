@@ -30,4 +30,9 @@ export const routes: Routes = [
       article: articleResolver,
     },
   },
+  {
+    path: 'not-found',
+    loadComponent: () => import('./pages/not-found-error/not-found-error'),
+    title: 'Error',
+  },
 ];

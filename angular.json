@@ -26,6 +26,11 @@
           "flat": false,
           "functional": true,
           "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "flat": false,
+          "functional": true,
+          "skipTests": true
         }
       },
       "root": "",
