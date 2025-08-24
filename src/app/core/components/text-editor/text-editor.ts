@@ -13,12 +13,14 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Line } from '@components/line/line';
+import { debounce } from '@constants/debounce';
+import { mutationObserverOptions } from '@constants/mutation-observer';
 import { HtmlService } from '@services/html/html';
 import { CommandName } from '@type/command-name.type';
 import { CommentButton } from './comment-button/comment-button';
 import { EditorButton } from './editor-button/editor-button';
 import { EditorColorButton } from './editor-color-button/editor-color-button';
-import { createCommands, debounce, mutationObserverOptions } from './utils';
+import { createCommands } from './utils';
 
 @Component({
   selector: 'app-text-editor',

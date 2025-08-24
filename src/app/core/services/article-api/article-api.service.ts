@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { ALL_RECORDS } from '@components/constants/articles-keys';
+import { ALL_RECORDS } from '@constants/articles-keys';
 import { NotFoundError } from '@errors/not-found-error';
 import { LocalStorageService } from '@services/local-storage/local-storage.service';
 import { Article } from '@type/article.type';

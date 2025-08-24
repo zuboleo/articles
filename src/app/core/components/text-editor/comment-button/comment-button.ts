@@ -29,6 +29,7 @@ export class CommentButton extends BaseEditorButton {
 
   protected checkSelection() {
     const selection = this.doc.getSelection();
+
     try {
       this.range = selection?.getRangeAt(0) ?? null;
     } catch (error) {

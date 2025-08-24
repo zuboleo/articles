@@ -9,5 +9,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CurrentDate {
-  date = new Date();
+  protected date = new Date();
 }
