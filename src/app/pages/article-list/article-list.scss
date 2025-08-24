@@ -1,9 +1,22 @@
 :host {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(auto-fill, 230px);
-  gap: 24px;
+  grid-template-rows: 48px 500px;
+  grid-row-gap: 12px;
   height: 100%;
-  overflow: auto;
-  scrollbar-width: thin;
+
+  .header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px 8px;
+  }
+
+  .article-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fill, 230px);
+    gap: 24px;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: thin;
+  }
 }

@@ -1,5 +1,12 @@
-@for (article of articles(); track $index) {
-<app-article [article]="article" />
-} @empty {
-<app-empty-article-list />
-}
+<div class="header">
+  <button primary-button
+          [routerLink]="['/', 'article', 'create']">Create new</button>
+</div>
+
+<div class="article-list">
+  @for (article of articles(); track $index) {
+  <app-article [article]="article" />
+  } @empty {
+  <app-empty-article-list />
+  }
+</div>

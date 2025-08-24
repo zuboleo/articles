@@ -1,8 +1,8 @@
 :host {
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: max-content 1fr max-content;
-  grid-column-gap: 12px;
+  justify-content: space-between;
+  gap: 12px;
   width: 100%;
   font-size: 12px;
 }
