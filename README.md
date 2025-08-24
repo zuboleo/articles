@@ -1,59 +1,56 @@
 # Article
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+## Цели приложения
 
-## Development server
+### CRUD для статей:
 
-To start a local development server, run:
+- Создание статьи (текст без форматирования и изображений)
+- Редактирование статьи
+- Удаление статьи
+- Просмотр списка доступных статей и выбор одной для просмотра/редактирования
 
-```bash
-ng serve
-```
+### Аннотирование текста:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- Возможность выделить произвольный фрагмент текста и назначить ему цвет и аннотацию (текстовое примечание).
+- Подчёркивание выделенного текста выбранным цветом.
+- При наведении курсора на выделенный текст должна всплывать аннотация (t\*\*ltip или аналогичный механизм).
+- Все аннотации должны сохраняться в localStorage и быть восстановлены при повторном открытии статьи.
 
-## Code scaffolding
+### Без сторонних библиотек:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Не использовать сторонние библиотеки для UI, аннотаций, хранения данных и всплывающих подсказок (всё реализовать средствами Angular, HTML, CSS и встроенных API браузера).
 
-```bash
-ng generate component component-name
-```
+### Технические требования
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Framework: Angular 18+
+- Язык: TypeScript
+- Стили: CSS/SCSS (на усмотрение разработчика)
 
-```bash
-ng generate --help
-```
+## Билд
 
-## Building
+Требования:
 
-To build the project run:
+- `Node.js` - `v22.14.0` и выше
+- `angular@cli` - `^20.2.0`
+
+Для билда приложения, запусти комманду
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+или смотри `package.json` чтобы запустить комманду через `npm`
 
-## Running unit tests
+## Дев сервер
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Для запуска дев сервера, запусти комманду
 
 ```bash
-ng e2e
+ng serve
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+or
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```bash
+ng dev
+```
