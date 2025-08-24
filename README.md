@@ -49,7 +49,7 @@ ng build
 ng serve
 ```
 
-or
+или
 
 ```bash
 ng dev
